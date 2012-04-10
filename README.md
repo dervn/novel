@@ -1,1 +1,1 @@
-python main.py -conf=dev.conf
+python main.py

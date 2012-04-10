@@ -76,7 +76,7 @@ class Application(web.Application):
 
 def main():
     tornado.options.parse_command_line()
-    if options.conf:
+    if options.config:
         conf_path = os.path.join(os.path.dirname(__file__), options.config)
         #print conf_path
         tornado.options.parse_config_file(conf_path)
