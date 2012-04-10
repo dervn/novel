@@ -1,0 +1,9 @@
+*.py[oc]
+*.project
+*.settings
+*.pydevproject
+*.log
+*.bat
+error*
+covers/*
+txt/*

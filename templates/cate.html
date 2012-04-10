@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %} {{ cate.name }} {% endblock %}
+
+{% block content %}
+<!--正文-->
+<div class="xsbody clearfix">
+	<!--正文-->
+	<div class="block-all clearfix">
+		<div class="blocktitle clearfix">
+			<h1>{{ cate.name }}小说最新更新</h1>
+		</div>
+	</div>
+	<div class="block-all clearfix">
+		<ul class="articlelist">
+			<li class="title"><div class="c1">文章名称</div><div class="c2">作者</div><div class="c3">最新章节</div><div class="c6">更新时间</div><div class="c7">状态</div></li>
+            {% for b in books %}
+			<li>
+                <div class="c1"><a href="/book/{{ b.id }}.html" target="_blank">{{ b.name }}</a></div>
+                <div class="c2"><a href="/book/author/{{ b.author_id }}" target="_blank">{{ b.author_name }}</a></div>
+                <div class="c3"><a href="/book/{{ b.id }}/{{ b.last_chapter_id }}.html" target="_blank">{{ b.last_chapter_title }}</a></div>
+                <div class="c6">{{ b.last_update_at | datetimeformat("%Y-%m-%d") }}</div>
+                <div class="c7">{{ b.is_finish | get_status }} </div>
+			</li>
+            {% endfor %}
+		</ul>
+	</div>
+
+{% macro render_pagination(pagination) %}
+  <div class="pages"><div class="pagelink" id="pagelink">
+  {% if pagination.has_prev %} <a href="?p={{ pagination.page - 1 }}">&laquo; 上一页</a> {% endif %}
+  {%- for page in pagination.iter_pages() %}
+    {% if page %}
+      {% if page != pagination.page %}
+        <a href="?p={{ page }}">{{ page }}</a>
+      {% else %}
+        <strong>{{ page }}</strong>
+      {% endif %}
+    {% else %}
+      <!-- <span class=ellipsis>…</span> -->
+    {% endif %}
+  {%- endfor %}
+  {% if pagination.has_next %}
+    <a href="?p={{ pagination.page + 1
+      }}">下一页 &raquo;</a>
+  {% endif %}
+  </div> </div>
+{% endmacro %}
+{{render_pagination(pagination)}}
+
+</div><!--xsbody-->
+{% endblock %}

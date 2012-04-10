@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %} {{ chapter.title + " - " + book.name }}{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ static_url('css/page.css') }}" type="text/css" />
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+<!--
+var previous_page = "{{previous}}.html";
+var next_page = "{{next}}.html";
+var index_page = "index.html";
+function jumpPage() {
+  var event = document.all ? window.event : arguments[0];
+  if (event.keyCode == 37) document.location = previous_page;
+  if (event.keyCode == 39) document.location = next_page;
+  if (event.keyCode == 13) document.location = index_page;
+}
+document.onkeydown=jumpPage;
+-->
+</script>
+{% endblock %}
+
+{% block content %}
+<!--正文-->
+<div class="booktitle clearfix">
+	<h1>{{ book.name }}最新章节</h1>
+	<span class="author">作者：{{ author.name }}</span>
+	<span class="link">
+		<img src="{{ static_url('images/gomulu.gif') }}" />&nbsp;<a href="/book/{{ book.id }}.html" >返回本书首页</a>
+		<img src="{{ static_url('images/add-doulist.gif') }}" />&nbsp;<a href="#" id="addtoshelf" class="thickbox" target="_blank" title="加入书架">加入书架</a>&nbsp;
+        <img src="{{ static_url('images/recnew.gif') }}" />&nbsp;<a href="#" id="addvote" class="thickbox" target="_blank" title="投票推荐">给本书投票</a>&nbsp;
+        <img src="{{ static_url('images/err-report.gif') }}" />&nbsp;<a id="err-report" href="javascript:void(0)"  onClick="report('{{ book.name }}出错啦!');"  rel="nofollow">错误举报</a>
+	</span>
+</div>
+<div class="chaptertitle clearfix">
+	<h1>{{ chapter.title }}</h1>
+</div>
+<div class="bookcontent clearfix">
+<center>
+<table>
+<tr>
+<td>
+<span id="zuo"></span>
+</td>
+<td>
+<span id="zhong"></span>
+</td>
+<td>
+<span id="you"></span>
+</td>
+</tr>
+</table>
+</center>
+</div>
+<div class="bookcontent clearfix">
+<div id="msg-top" class="page-msg"></div>
+{{ text | mdconvert }}
+<div id="msg-bottom" class="page-msg"></div>
+</div><!--content-->
+<div class="toolbar clearfix">
+	<div id="mark_bar">
+		<div class="mark"  onClick="vote(9038);" onmouseout="this.style.backgroundPosition='-189px 0'" onmouseover="this.style.backgroundPosition='0 0'">
+		<div>我喜欢这本小说&nbsp;<span>推荐</span></div>
+		</div>
+		<div class="mark" onClick="addbookcase(9038,3610431);" onmouseout="this.style.backgroundPosition='-189px 0'" onmouseover="this.style.backgroundPosition='0 0'">
+		<div id="lastcp">暂时先看到这里&nbsp;<span>书签</span></div>
+		</div>
+		<div class="mark" onclick="window.open('#')" onmouseout="this.style.backgroundPosition='-189px 0'" onmouseover="this.style.backgroundPosition='0 0'">
+		<div>找个写完的看看&nbsp;<span>全本</span></div>
+		</div>
+	</div>
+</div>
+<div class="bottomlink clearfix">
+<div class="linkbtn clearfix">
+	<a class="redbutt" href="{{previous}}.html"><span>(快捷键:←)上一页</span></a>
+	<a class="redbutt" href="index.html"><span>返回章节目录(快捷键:回车)</span></a>
+	<a class="redbutt" href="{{next}}.html"><span>下一页(快捷键:→)</span></a>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,205 @@
+html{color:#111;background:#fff}
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,blockquote{margin:0;padding:0}
+table{border-spacing:0;border-collapse:collapse;border:none;padding:0;margin:0}
+fieldset,img{border:0}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{zoom:1;_height:1px;display:block}
+*html .clearfix{height:1%}
+*+html .clearfix{height:1%}
+ul{list-style:none;list-style-type:none;margin:0;padding:0}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit}
+input,button,textarea,select{*font-size:100%}
+/*img{cursor:hand;}*/
+body,td,th{font-size:12px;font-family:芥竟,verdana,arial,sans-serif,"times new roman";line-height:162%}
+h1{display:block;font-size:25px;font-weight:700;color:#494949;margin:0;padding:5px 0px 15px;line-height:1.1em}
+h3{height:26px;margin-left:4px;font:14px arial, helvetica, sans-serif;color:#666;margin-bottom:1px;line-height:150%;background:url("../images/topicbar.gif"/*tpa=http://www.luoqiu.com/images/topicbar.gif*/) no-repeat right top}
+h3 img{margin:1px 1px 0 0}
+h4{height:26px;margin:0 0 10px 4px;overflow:hidden;font:12px arial, helvetica, sans-serif;color:#666;line-height:1.8em;background:url("../images/topicbar.gif"/*tpa=http://www.luoqiu.com/images/topicbar.gif*/) no-repeat right top}
+h2{font-size:14px;color:#060;margin:0 0 12px;line-height:150%}
+.fleft{float:left;}
+.fright{float:right;}
+.cleft{clear:left;}
+.ll{float:left}
+.rr{float:right}
+.trr{text-align:right}
+
+/*칵훰루목,융*/
+a {	color:#369; background-color: transparent; text-decoration: none;}
+a:link{color:#369;text-decoration:none}
+a:visited{color:#369;text-decoration:none}
+a:hover{color:#fff;text-decoration:none;background:#039}
+a:active{color:#fff;text-decoration:none;background:#f93}
+/*땅꼬돔봄*/
+
+#header:after,.site-nav:after,.top-nav-items:after,.top-nav:after{content:'\0020';display:block;clear:both;height:0}
+.top-nav{clear:both;width:100%;color:#555;margin-bottom:1.9em;height:33px;background:url("../images/t_bg.png") repeat-x top;_background:none;_filter:progid:dximagetransform.microsoft.alphaimageloader(src='/images/t_bg.png',sizingmethod='scale')}
+.top-nav .bd{width:950px;margin:0 auto}
+.top-nav-info{float:left;margin-top:5px;*margin-top:6px;text-align:right;}
+.top-nav-info a.bn-radio:hover,.top-nav a:hover{background-color:#369;color:#fff}
+.top-nav li.on{color:#000}
+.top-nav li.on a:link,.top-nav li.on a:visited,.top-nav li.on a:hover,.top-nav li.on a:active{color:#000}
+.top-nav-items{float:right;*position:relative;font-size:12px;margin-top:5px;*margin-top:6px;margin-right:5px;}
+.top-nav-items a{margin-left:15px}
+
+
+/*으커돔봄,logo,鎧乞係*/
+.nav-srh { float:right;padding-left:5px;width:330px;margin-bottom:0px; }
+.nav-srh form { padding:0 1px 0 0;height:28px;*float:left;} 
+.nav-srh input { float:left;width:150px;height:24px;line-height:24px;border:1px solid #a6d098;background:#fff;padding:0 2px 0 5px;border-right:0;color:#999; } 
+.nav-srh .inp {float:right; text-align:right;} 
+.nav-srh .s1 {float:left;margin-top:10px;}
+.nav-srh .bn-srh { width:30px;height:26px;font-size:13px;padding:1px 0 3px 3px;border:none;background:transparent url("../images/ui_ns_sbg4.png") no-repeat -190px -100px;cursor:pointer;letter-spacing:3px;text-align:center; }
+.nav-srh .bn-srh { padding:2px 0 0 0\9; } 
+
+.site-nav{width:950px;margin:0 auto;clear:both;border-bottom:1px dashed #ddd;}
+.site-nav-logo{float:left;margin:0 15px 2px 0;*margin-top:2px}
+.site-nav-logo img{margin-bottom:-3px}
+.site-nav-logo a:hover,.site-nav-logo a:active,.site-nav-logo a{background:transparent}
+
+.site-nav-items{float:left;margin-top:10px;*margin-top:16px;}
+.site-nav-items li{display:inline;margin:0 5px}
+.site-nav-items li a:link,.site-nav-items li a:hover,.site-nav-items li a:visited,.site-nav-items li a:active{font-size:14px;color:#368332}
+.site-nav-items li a:hover{background-color:#368332;color:#fff}
+.site-nav-items b{font-size:14px;background-color:#368332;color:#fff;font-weight:normal;}
+
+#searchkey{color:#c0c0c0; background:#f8f8f8;width:120px;font-size:12px;padding:1px 2px 0px 2px;line-height:16px;height:16px;border-top:1px solid #606060;	border-left:1px solid #606060;	border-right:1px solid #c0c0c0;	border-bottom:1px solid #c0c0c0;}
+#searchbtn{color:#fff;background:#aaa;padding:0px 4px 0px 4px;margin:0px 0px 0px 1px;width:40px;height:22px;border-top:1px solid #c0c0c0;	border-left:1px solid #c0c0c0;	border-right:1px solid #a0a0a0;	border-bottom:1px solid #a0a0a0;}
+#searchtype {color:#669;background:#f8f8f8;}
+
+
+.xsbody{width:950px;margin:0 auto;min-height:420px;}
+.content{float:left;}
+.side{float:right;width:310px;}
+.block-left{width:600px;margin-top:20px;overflow:hidden;}
+.block-right{width:310px;margin-top:20px;overflow:hidden;}
+.block-all{width:950px;margin-top:20px;overflow:hidden;}
+.blocktitle{font-size:14px;color:#060;line-height:150%;}
+.blocktitle .title{float:left;font-size:14px;color:#060;line-height:150%;}
+.blocktitle .more{font-size:12px;line-height:150%;color:#666;}
+
+
+/*깃痙*/
+.booktitle {color:#494949;font-size:12px;width:950px;margin:0 auto;margin-top:20px;}
+.booktitle h1{float:left;}
+.booktitle h1 a{color:#494949;}
+.booktitle h1 a:hover{color:#fff;background:#999}
+.booktitle span{padding-top:10px;padding:10px 0 0 10px;}
+.booktitle .author{float:left}
+.booktitle .link{float:right;}
+.booktitle .link img{margin-left:5px;}
+
+a.redbutt{overflow:hidden;background:transparent url("../images/redbtn.gif") no-repeat scroll right top;color:#ff7676;height:24px;padding-right:7px;font:normal 12px 芥竟;margin:0 5px 0 0;text-decoration:none;display:block;cursor:pointer;float:left;}
+a.redbutt span{background:transparent url("../images/redbtn.gif") no-repeat;display:block;padding:4px 1px 4px 8px;line-height:18px}
+html*a.redbutt span{[font-size:12px;padding-top:3px;]padding-top:4px}
+a.redbutt input{*margin-top:-1px;padding:0;line-height:18px;background:none;color:#ff7676;border:0;cursor:pointer;*width:auto;_width:0;*overflow:visible}
+a.redbutt:visited{color:#ff7676;text-decoration:none}
+a.redbutt:hover{background:transparent url("../images/redbtn.gif") no-repeat right -24px;color:#fff}
+a.redbutt:hover span,a.redbutt:hover input{background-position:left -24px;color:#fff}
+
+/*죗깊*/
+.booklist{width:950px;margin:0 auto;background:#f5f5f5;}
+.booklist span{float:left;width:310px;height:30px;overflow:hidden;line-height:30px;border-bottom:1px dashed #ddd;padding-left:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.booklist span.v{width:945px;float:left;font-size:14px;color:#369;line-height:200%;border:0;background:#e8e8e8;border-top:1px solid #e0e0e0; font-weight:bold;padding-left:5px;}
+/*뒀꼬link*/
+.bottomlink {color:#494949;font-size:12px;width:950px;margin:0 auto;margin-top:10px;}
+/*index밤멩*/
+#i_adtop{width:950px;margin:0 auto;padding-bottom:10px;padding-top:10px;background:#f5f5f5;display:none}
+#i_adtop div{float:left;margin-left:13px;margin-bottom:5px;}
+#i_adtop #i_ad_t4{float:left;width:940px;text-align:center;display:none}
+
+#i_adbottom{width:950px;margin:0 auto;margin-bottom:5px;background:#f5f5f5;padding:10px 0 10px 0;display:none}
+#i_adbottom div{float:left;margin-left:5px;}
+#i_ad_b1, #ad_b2{}
+/***********코휭女**********/
+.chaptertitle {color:#494949;font-size:12px;width:950px;margin:0 auto;background:#f5f5f5;}
+.chaptertitle h1{float:left;display:block;font-size:16px;font-weight:bold;margin:5px;padding:5px 0px 5px;line-height:1.1em}
+/*page밤멩*/
+#p_adtop{width:950px;margin:0 auto;padding-top:10px;background:#f5f5f5;display:none}
+#p_adtop div{float:left;margin-left:13px;margin-bottom:5px;}
+#p_ad_t4{float:left;width:900px;text-align:center;display:none}
+#p_adbottom{width:950px;margin:0 auto;margin-bottom:5px;background:#f5f5f5;padding:10px 0 10px 0;}
+#p_adbottom div{float:left;margin-left:5px;}
+#p_ad_b1,#p_ad_b2{margin:0 auto;margin:5px;padding:5px 0 5px 0;text-align:center;display:none}
+/*攣匡*/
+.bookcontent{color:#000;font-size:14px;width:930px;margin:0 auto;padding:10px;line-height:200%;background:#f5f5f5;}
+.bookcontent p{text-indent: 2em;}
+.divimage {text-align: center}
+.page-msg{font-size:12px;color:#060;display:block;clear:both;}
+.page-msg a{color:#060;}
+.page-msg a:hover{color:#fff;background:#060;}
+#msg-bottom span{color:#006000}
+
+.toolbar{width:950px;margin:0 auto;background:#f5f5f5;}
+#mark_bar{margin:0px auto;width:570px;height:50px;color:#666;margin-bottom:10px;}
+.mark{float:left;cursor:pointer;text-align:center;width:189px;height:48px; background:url("../images/mark.gif") no-repeat -189px 0;font-family:菓흡錤붚,Arial,Helvetica, sans-serif,Lucida, Lucida Grande, Tahoma;}
+.mark div{padding:13px; }
+.mark div span{font-size:20px;font-weight:bold;}
+.linkbtn{margin:0px auto;width:450px;}
+/*女신*/
+.footer{width:950px;margin:0 auto;color:#999;padding-top:6px;margin-top:20px;overflow:hidden;border-top:1px dashed #ddd;}
+.footer .gray-link a:link,.footer .gray-link a:visited,.footer .gray-link a:active{color:#999;background:none}
+.footer .gray-link a:hover{color:#fff;background:#999}
+.footer .blue-link a:link,#footer .blue-link a:visited,#footer .blue-link a:active{color:#369;background:none}
+.footer .blue-link a:hover{color:#fff;background:#039}
+.footer #btips{margin-top:40px;display:none;}
+.footer .page-comment{display:none;}
+
+/**********瓊刻눗왯잚*******************/
+
+.popbox{
+	position:absolute;
+	width:190px !important;
+	height:110px !important;
+	width:200px;
+	height:120px;
+	border: 1px solid #a3bee8;
+	background: #f0f7ff;
+	color: #ff0000;
+	font-size: 12px;
+	line-height:120%;
+	padding: 3px;
+	display:none;
+	z-index:9999;
+}
+
+.ajaxtip{
+	position:absolute;
+	border: 1px solid #a3bee8;
+	background: #f0f7ff;
+	color: #ff0000;
+	font-size: 12px;
+	line-height:120%;
+	padding: 3px;
+	z-index:1000;
+}
+
+#tips {
+	border: 1px solid #a3bee8;
+	padding: 3px;
+	display: none;
+	background: #f0f7ff;
+	position: absolute;
+	z-index: 2000;
+}
+
+#dialog{
+	position:absolute;
+	top:0px;
+	left:0px;
+	border: 5px solid #8bcee4;
+	background: #f1f5fa;
+	font-size: 12px;
+	line-height:120%;
+	padding: 20px 10px 10px 10px;
+	visibility: hidden;
+}
+
+#mask{
+	position:absolute;
+	top:0px;
+	left:0px;
+	background: #777777;
+	filter: Alpha(opacity=30);
+	opacity: 0.3;
+}

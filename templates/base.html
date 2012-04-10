@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{% block title %}Default title{% endblock %}&nbsp;-&nbsp;旧书楼小说网</title>
+    <meta name="keywords" content="旧书楼" />
+    <meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    {% block style %}
+        <link rel="stylesheet" href="{{ static_url('css/main.css') }}" type="text/css" />
+    {% endblock %}
+
+</head>
+<body>
+
+<!--顶部-->
+<div class="top-nav ">
+  <div class="bd">
+    <div class="top-nav-info">
+		与过万书友一起分享最快的小说更新！旧书楼值得您收藏！
+    </div>
+    <div class="top-nav-items">
+		<div width="100%" height="30"  align="right"  valign="top" style="margin:0">
+            <a href="/signin"  target="_blank" >登录</a>
+                <a href="/signup" target="_blank" >还没注册？</a>
+                <a href="#" onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.jiushulou.com/');">设置本站为首页</a>
+        <a href="javascript:window.external.addFavorite('http://www.jiushulou.com','旧书楼')">收藏本站</a>
+        </div>
+    </div>
+  </div>
+</div>
+<!--导航栏-->
+<div class="site-nav">
+    <div class="site-nav-logo">
+		<a href="/">
+			<img src="{{ static_url('images/logo.gif') }}" alt="旧书楼小说网">
+		</a>
+    </div>
+	<div class="site-nav-items">
+        <ul>
+			<li><a href="/">首页</a></li><!-- [c for c in categories if c.name != ''] -->
+			{% for c in categories %}
+               <li><A href="/book/cate/{{ c.id }}.html">{{ c.short_name }}</A></li>
+            {% endfor %}
+        </ul>
+    </div>
+	<div id="searbar" class="nav-srh">
+		<div class="s1">
+			<a href="/book/all">最近更新</a> &nbsp;
+			<a href="/book/finish">全本小说</a>
+		</div>
+		<form name="ssform" method="get" action="#" target="_blank"  onsubmit="if(searchkey.value=='' || searchkey.value=='请输入小说名称'){alert('请输入小说名称,别输错别字哦:)');return false;}">
+			<div class="inp">
+				<span><input name="searchkey" type="text" size="22" maxlength="30" value="请输入小说名称" title="双击清除输入" onfocus="this.focus();if(this.value=='请输入小说名称'){this.value='';}" onblur="if(this.value==''){this.value='请输入小说名称';}" ondblclick="javascript:this.value=''"/></span><span><input class="bn-srh" type="submit"  value="" title="搜索"/><input type="hidden" name="searchtype" value="articlename"/></span>
+			</div>
+		</form>
+	</div><!--搜索栏结束-->
+</div>
+<!--正文-->
+{% block content %}Default content{% endblock  %}
+
+<!--页脚-->
+<div class="footer clearfix">
+	<span class="fleft gray-link">
+		&copy; 2012&nbsp;旧书楼小说网
+        <br/>
+	</span>
+	<span class="fright">
+		· <a href="/about">联系站长</a>
+		· <a href="/sitemap">网站地图</a>
+	</span>
+</div>
+
+{% block script %}
+
+{% endblock %}
+<script language="javascript" type="text/javascript"  src="{{ static_url('js/common.js') }}"></script>
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=7&amp;uid=588374" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+
+<br/>
+</body>
+</html>

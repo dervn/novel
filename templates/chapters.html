@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %} {{ book.name }}{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ static_url('css/page.css') }}" type="text/css" />
+{% endblock %}
+{% block content %}
+<!--正文-->
+<div class="booktitle clearfix">
+	<h1>{{ book.name }}最新章节</h1>
+	<span class="author">作者：{{ author.name }}</span>
+	<span class="link">
+		<img src="{{ static_url('images/gomulu.gif') }}" />&nbsp;<a href="/book/{{ book.id }}.html" >返回本书首页</a>
+		<img src="{{ static_url('images/add-doulist.gif') }}" />&nbsp;<a href="#" id="addtoshelf" class="thickbox" target="_blank" title="加入书架">加入书架</a>&nbsp;
+        <img src="{{ static_url('images/recnew.gif') }}" />&nbsp;<a href="#" id="addvote" class="thickbox" target="_blank" title="投票推荐">给本书投票</a>&nbsp;
+        <img src="{{ static_url('images/err-report.gif') }}" />&nbsp;<a id="err-report" href="javascript:void(0)"  onClick="report('{{ book.name }}出错啦!');"  rel="nofollow">错误举报</a>
+	</span>
+</div>
+<div class="booklist clearfix">
+{% for v in volumes %}
+<span class="v">{{ v['title'] }}</span>
+     {% for ch in v['chs'] %}
+        <span><a href="{{ ch.id }}.html">{{ ch['title'] }}</a></span>
+     {% endfor %}
+{% endfor %}
+</div><!--booklist-->
+<div class="bottomlink clearfix">
+	<div class="ll">
+	· 本站章节来源于互联网网友。<br />
+	· 如果本站转载文章侵犯到您的利益,请及时与我们联系进行删除。<br />
+	· 如果您发现本站转载文章存在色情、政治、暴力等违反国家互联网管理规定的内容，请通知我们进行清理。<br />
+	· 各位书友如果喜欢《{{ book.name }}》这本书，请积极参与评论和投票，不但可以与其他书友共同分享乐趣，也可以增加积分和经验！<br />
+	</div>
+	<div class="rr">
+		<a class="redbutt" href="/book/{{ book.id }}.html"><span>返回本书首页</span></a>
+	</div>
+</div>
+{% endblock %}

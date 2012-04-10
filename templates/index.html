@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}首页{% endblock  %}
+
+{% block content %}
+
+<div class="xsbody clearfix">
+	<!--正文(左)-->
+	<div class="content clearfix">
+		<!--封推-->
+		<div class="block-left clearfix">
+			<div class="blocktitle clearfix">
+				<div class="title">站长推荐好看的小说&nbsp; ......&nbsp;</div>
+				<div class="more1"></div>
+				<div class="green_tab">
+					<a id="tab11" class="on" href='javascript:void(0)' onMouseOver="showTab('tab1','1');"><span>热门</span></a>
+					<a id="tab12"  href='javascript:void(0)' onMouseOver="showTab('tab1','2');"><span>推荐</span></a>
+					<a id="tab14"  href='javascript:void(0)' onMouseOver="showTab('tab1','3');"><span>完本</span></a>
+				</div>
+
+			</div>
+			<div class="block-fmtj">
+				<div id="tab1_1" >
+
+{% for b in hot %}
+<ul class="info">
+        <li class="n1"><span class="bk"><a href="/book/{{ b.id }}.html">{{ b.name }}</a>（{{ b.author_name }}）</span><span>{{ b.recommend_count }}人推荐</span></li>
+
+	<li class="title"><a href="/book/{{b.id}}.html" target="_blank"><img src="{{ static_url(b.id | get_cover(b.cover)) }}" /></a>
+	<h2>《<a href="/book/{{ b.id }}.html" target="_blank">{{ b.name }}</a>》</h2>
+	作者：{{ b.author_name }} <br />
+	类别：{{ b.cate_name }}<br />
+
+	</li>
+    <li class="intro">{{ b.description[0:40] }}( <a href="/book/{{b.id}}.html" target="_blank">点击阅读</a> )</li>
+	</ul>
+{% endfor %}
+
+				</div>
+				<div id="tab1_2"  style="display:none;">
+
+
+{% for b in recommend %}
+<ul class="info">
+        <li class="n1"><span class="bk"><a href="/book/{{ b.id }}.html">{{ b.name }}</a>（{{ b.author_name }}）</span><span>{{ b.recommend_count }}人推荐</span></li>
+
+	<li class="title"><a href="/book/{{b.id}}.html" target="_blank"><img src="{{ static_url(b.id | get_cover(b.cover)) }}" /></a>
+	<h2>《<a href="/book/{{ b.id }}.html" target="_blank">{{ b.name }}</a>》</h2>
+	作者：{{ b.author_name }} <br />
+	类别：{{ b.cate_name }}<br />
+
+	</li>
+    <li class="intro">{{ b.description[0:40] }}( <a href="/book/{{b.id}}.html" target="_blank">点击阅读</a> )</li>
+	</ul>
+{% endfor %}
+				</div>
+				<div id="tab1_3"  style="display:none;">
+
+
+{% for b in finish %}
+<ul class="info">
+        <li class="n1"><span class="bk"><a href="/book/{{ b.id }}.html">{{ b.name }}</a>（{{ b.author_name }}）</span><span>{{ b.recommend_count }}人推荐</span></li>
+
+	<li class="title"><a href="/book/{{b.id}}.html" target="_blank"><img src="{{ static_url(b.id | get_cover(b.cover)) }}" /></a>
+	<h2>《<a href="/book/{{ b.id }}.html" target="_blank">{{ b.name }}</a>》</h2>
+	作者：{{ b.author_name }} <br />
+	类别：{{ b.cate_name }}<br />
+
+	</li>
+    <li class="intro">{{ b.description[0:40]}}( <a href="/book/{{b.id}}.html" target="_blank">点击阅读</a> )</li>
+	</ul>
+{% endfor %}
+				</div>
+			</div>
+		</div><!--封推结束-->
+		<!--最近更新-->
+		<div class="block-left clearfix">
+			<div class="blocktitle clearfix">
+				<div class="title">正在更新&nbsp; ......&nbsp;</div>
+				<div class="more1">(&nbsp;<a href="/book/all" target="_blank">查看全部更新</a>&nbsp;)</div>
+			</div>
+			<div class="block-update">
+				<div id="tab2_1" >
+    {% for v in news %}
+        [{{ v.cate_name}} ]  <a href="/book/{{ v.id }}.html">{{ v.name }}</a>&nbsp;<a href="/book/{{ v.id }}/{{ v.last_chapter_id }}.html" target="_blank">{{ v.last_chapter_title }}</a>&nbsp;{{ v.author_name }}/著  （{{ v.last_update_at | datetimeformat("%Y-%m-%d") }}） <br />
+    {% endfor %}
+        </div>
+
+			</div>
+		</div><!--更新结束-->
+
+	</div><!--content-->
+	<!--右边栏-->
+	<div class="side">
+    <!--新闻-->
+		<div class="block-right clearfix">
+			<div class="blocktitle">
+            公告
+			</div>
+			<ul class="block-news">
+            &nbsp;&nbsp;旧书楼小说网全新改版，如在浏览过程中出现问题，请与我们联系，谢谢支持！
+            <br><br>
+            &nbsp;&nbsp;旧书楼永久性域名 www.jiushulou.com</ul>
+		</div>
+
+		<!--推荐榜-->
+		<div class="block-right clearfix">
+			<div class="blocktitle">
+				书友推荐的小说
+			</div>
+			<ul class="block-vote">
+
+    {% for b in recommends %}
+        <li class="n1"><span class="bk"><a href="/book/{{ b.id }}.html">{{ b.name }}</a>（{{ b.author_name }}）</span><span>{{ b.recommend_count }}人推荐</span></li>
+     {% endfor %}
+			</ul>
+		</div>
+		<!--点击榜-->
+		<div class="block-right clearfix">
+			<div class="blocktitle">
+				人气最高的小说
+			</div>
+			<ul class="block-click">
+<ul class="ultop">
+
+    {% for b in hots %}
+        <li class="n1"><span class="bk"><a href="/book/{{ b.id }}.html">{{ b.name }}</a>（{{ b.author_name }}）</span><span>{{ b.read_count }}点击</span></li>
+     {% endfor %}
+			</ul>
+		</div>
+
+	</div><!--右边栏结束-->
+</div><!--xsbody-->
+
+<!--友情链接-->
+<div class="friendlink clearfix">
+	友情链接：
+<ul class="ulrow">
+  <li style="float:left;text-align:center;">
+  <a href="http://www.jiushulou.com" style="color:">旧书楼小说网</a> &nbsp;</li>
+  <li style="float:left;text-align:center;">  <a href="http://www.sodu.org" target="_blank" style="color:">sodu</a></li>
+</ul>
+
+</div>
+
+{% endblock  %}
+

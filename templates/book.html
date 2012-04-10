@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %} {{ book.name[0:128] }} {% endblock %}
+
+{% block content %}
+<!--正文-->
+<div class="xsbody clearfix">
+<div class="xsbody clearfix">
+	<!--正文(左)-->
+	<div class="content clearfix">
+		<!--小说信息-->
+		<div class="block-left clearfix">
+			<div class="blocktitle clearfix">
+				<div class="booktitle clearfix"><h1>{{ book.name }}</h1><span class="author">作者：<a href="/book/author/{{ author.id }}" title="{{ author.name }}作品集">{{ author.name }}</a></span> </div>
+				<div class="bookcover"><a href="/book/{{ book.id }}/index.html" title="点击进入{{ book.name }}最新章节目录" target="_blank"><img src="{{ static_url(cover) }}"></a></div>
+				<div class="bookinfo">
+					本书属于<a class="type" href="/book/cate/{{ cate.id }}.html" target="_blank">{{ cate.name }}</a>小说<br />
+					已有<b>{{ book.read_count }}</b>人读过此书...<br />
+					已有<b>{{ book.recommend_count }}</b>人推荐过此书...<br />
+					目前<b>{{ book.is_finish | get_status }}</b><!-- ,已写了<b>1811668</b>字... --><br />
+				</div>
+
+			</div>
+			<div class="block-linkbtn">
+				<span class="ll">
+					<a class="ll redbtn" href="/book/{{ book.id }}/index.html" target="_blank" title="{{ book.name }}最新章节目录页面"><span>点击阅读</span></a>
+					<a class="ll redbtn" href="#" title="{{ book.name }}txt下载页面"><span>TXT下载</span></a>
+				</span>
+				<span class="rr">
+					<img src="{{ static_url('images/add-doulist.gif') }}" />&nbsp;<a href="#" id="addtoshelf" class="thickbox" target="_blank" title="加入书架">加入书架</a>&nbsp;
+					<img src="{{ static_url('images/recnew.gif') }}" />&nbsp;<a href="#" id="addvote" class="thickbox" target="_blank" title="投票推荐">给本书投票</a>&nbsp;
+					<img src="{{ static_url('images/err-report.gif') }}" />&nbsp;<a id="err-report" href="javascript:void(0)"  onClick="report('{{ book.name }}出错啦!');"  rel="nofollow">错误举报</a>
+				</span>
+			</div>
+		</div><!--小说信息结束-->
+		<!--最新章节-->
+		<div class="block-left clearfix">
+			<div class="blocktitle clearfix">
+				<div class="title">{{ book.name }}最新章节</div>
+			</div>
+			<ul class="block-newbook clearfix" >
+				<li><a class="top" href="/book/{{book.id}}/{{ book.last_chapter_id }}.html" target="_blank"><b>{{ book.last_chapter_title }}</b></a> &nbsp; <i>{{ book.last_update_at | datetimeformat }}</i></li>
+			</ul>
+		</div>
+
+		<!--内容简介-->
+		<div class="block-left clearfix">
+			<div class="blocktitle">
+				{{ book.name }}内容简介&nbsp; ......&nbsp;
+				<span class="more">
+				</span>
+			</div>
+			<ul class="block-intro">
+			{{ book.description | mdconvert }}
+			</ul>
+		</div>
+	</div><!--content-->
+	<!--右边栏-->
+	<div class="side">
+		<!--点击榜-->
+		<div class="block-right clearfix">
+			<div class="blocktitle">
+				相关推荐
+
+			</div>
+
+		</div>
+	</div><!--右边栏结束-->
+</div><!--xsbody-->
+</div><!--xsbody-->
+{% endblock %}
