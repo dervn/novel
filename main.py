@@ -25,7 +25,7 @@ define("static_url_prefix", default="/static/", help="static url prefix")
 define("login_url", default="/signin", help="login url")
 define("database_echo", default=False, help="sqlalchemy database engine echo switch")
 define("database_engine", default="mysql://root:123@127.0.0.1/jiushulou", help="the database connect string for sqlalchemy")
-define("txt_path", default="D:\\liubaikui\\jiushulou\\txt\\", help="text file path")
+define("txt_path", default="/home/work/txt", help="text file path")
 define("page_size", default=30, help="each page items num")
 # mysql server Options
 define("mysql_host_m", default='127.0.0.1', help="master hostname or IP address of the instance to connect to")

@@ -5,5 +5,5 @@
 *.log
 *.bat
 error*
-covers/*
+static/covers/*
 txt/*
