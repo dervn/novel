@@ -58,7 +58,7 @@ class Application(web.Application):
         self.env = Environment(
                 loader=FileSystemLoader(template_path),
                 extensions = ['jinja2.ext.i18n',
-                              'jinja2htmlcompress.HTMLCompress'
+                              'lib.jinja2htmlcompress.HTMLCompress'
                              ],
                 )
         #Custom Filters
