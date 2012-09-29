@@ -17,7 +17,7 @@ from jinja2 import Environment, FileSystemLoader
 
 from lib.utils import datetimeformat, mdconvert, get_cover, get_status
 
-define("config", default="config.cfg", help="config file path")
+define("config", default="config.py", help="config file path")
 define("port", default=8888, help="run on the given port", type=int)
 define("debug", default=False, help="run the server mode Debug", type=bool)
 define("cookie_secret", default="b23aadc7b8c0dbc5a9b38341944c3998b23aadc7b8", help="key for HMAC")

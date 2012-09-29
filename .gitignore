@@ -4,6 +4,11 @@
 *.pydevproject
 *.log
 *.bat
+*.cfg
+*.sql
+
+config.py
+
 error*
 static/covers/*
 txt/*
