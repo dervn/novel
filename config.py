@@ -1,4 +1,4 @@
-port = 8001
+port = 8000
 debug = True 
 
 cookie_secret = "b23aadc7b8c0dbc5a9b38341944c3998b23aadc7b8"
@@ -8,7 +8,7 @@ database_echo = False
 database_engine ="mysql://root:123@127.0.0.1/jiushulou" 
 page_size = 30 
 
-txt_path ="D:\\liubaikui\\jiushulou\\txt\\" 
+txt_path ="D:\\liubaikui\\txt\\" 
 
 # mysql server Options
 mysql_host_m ="127.0.0.1" 
