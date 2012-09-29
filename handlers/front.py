@@ -172,6 +172,23 @@ class AboutHandler(BaseHandler):
     def get(self):
         self.render("about.html")
 
+class SearchHandler(BaseHandler):
+    def get(self):
+        key = self.get_argument('key', '')
+        page = self._get_page()
+        page_size = 30
+
+        count =Book.get_search_books_count(key)
+        books = Book.get_search_books(key, page, page_size)
+        print books
+        pagination = Pagination(page, page_size, count['count'])
+
+        self.render("search.html",
+            pagination=pagination,
+            books=books,
+            searchKey=key,
+        )
+
 routes = [
     (r"/", IndexHandler),
     (r"/book/(\d+).html", BookHandler),
@@ -181,5 +198,6 @@ routes = [
     (r"/book/author/(\d+?)", AuthorHandler),
     (r"/book/all", AllHandler),
     (r"/book/finish", FinishHandler),
+    (r"/book/search", SearchHandler),
     (r"/about", AboutHandler),
 ]

@@ -49,9 +49,9 @@
 			<a href="/book/all">最近更新</a> &nbsp;
 			<a href="/book/finish">全本小说</a>
 		</div>
-		<form name="ssform" method="get" action="#" target="_blank"  onsubmit="if(searchkey.value=='' || searchkey.value=='请输入小说名称'){alert('请输入小说名称,别输错别字哦:)');return false;}">
+		<form name="ssform" method="get" action="/book/search" target="_blank"  onsubmit="if(searchkey.value=='' || searchkey.value=='请输入小说名称'){alert('请输入小说名称,别输错别字哦:)');return false;}">
 			<div class="inp">
-				<span><input name="searchkey" type="text" size="22" maxlength="30" value="请输入小说名称" title="双击清除输入" onfocus="this.focus();if(this.value=='请输入小说名称'){this.value='';}" onblur="if(this.value==''){this.value='请输入小说名称';}" ondblclick="javascript:this.value=''"/></span><span><input class="bn-srh" type="submit"  value="" title="搜索"/><input type="hidden" name="searchtype" value="articlename"/></span>
+				<span><input name="key" type="text" size="22" maxlength="30" value="请输入小说名称" title="双击清除输入" onfocus="this.focus();if(this.value=='请输入小说名称'){this.value='';}" onblur="if(this.value==''){this.value='请输入小说名称';}" ondblclick="javascript:this.value=''"/></span><span><input class="bn-srh" type="submit"  value="" title="搜索"/></span>
 			</div>
 		</form>
 	</div><!--搜索栏结束-->
