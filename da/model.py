@@ -19,29 +19,24 @@ sdb = database.Connection("%s:%s"%(MYSQL_HOST_S, str(MYSQL_PORT)), MYSQL_DB, MYS
 
 class Category():
     def get_all_cat(self):
-        sdb._ensure_connected()
         return sdb.query('SELECT * FROM `tb_category` ORDER BY `id` ASC')
 
     def get_cat_by_id(self, id = ''):
-        sdb._ensure_connected()
         return sdb.get('SELECT * FROM `tb_category` WHERE `id` = %s LIMIT 1' % str(id))
 
 Category = Category()
 
 class Book():
     def get_count (self, finish=False):
-        sdb._ensure_connected()
         if finish:
             return sdb.get('SELECT count(1) AS count FROM `tb_book` WHERE is_finish=1 LIMIT 1')
         else:
             return sdb.get('SELECT count(1) AS count FROM `tb_book` LIMIT 1')
 
     def get_book_by_id (self, id = ''):
-        sdb._ensure_connected()
         return sdb.get('SELECT * FROM `tb_book` WHERE `id` = %s LIMIT 1' % str(id))
 
     def get_recommend_books (self):
-        sdb._ensure_connected()
         return sdb.query('''
             SELECT b.*, a.`name` as author_name
             FROM `tb_book` b, tb_author a
@@ -51,7 +46,6 @@ class Book():
         )
 
     def get_hot_books (self):
-        sdb._ensure_connected()
         return sdb.query('''
             SELECT b.*, a.`name` as author_name
             FROM `tb_book` b, tb_author a
@@ -61,7 +55,6 @@ class Book():
         )
 
     def get_all_books (self, page = 1, page_size = 30):
-        sdb._ensure_connected()
         sql = '''
             SELECT b.id, b.name, b.is_finish, b.last_update_at, b.last_chapter_id, b.last_chapter_title, c.name AS cate_name, a.id AS author_id, a.name AS author_name
             FROM tb_book AS b ,tb_author AS a, tb_category AS c
@@ -71,7 +64,6 @@ class Book():
         return sdb.query(sql, (page - 1) * page_size, page_size)
 
     def get_finish_books (self, page = 1, page_size = 30):
-        sdb._ensure_connected()
         sql = '''
             SELECT b.id, b.name, b.is_finish, b.last_update_at, b.last_chapter_id, b.last_chapter_title, c.name AS cate_name, a.id AS author_id, a.name AS author_name
             FROM tb_book AS b ,tb_author AS a, tb_category AS c
@@ -81,7 +73,6 @@ class Book():
         return sdb.query(sql, (page - 1) * page_size, page_size)
 
     def get_search_books (self, key, page = 1, page_size = 30):
-        sdb._ensure_connected()
         sql = '''
             SELECT b.id, b.name, b.is_finish, b.last_update_at, b.last_chapter_id, b.last_chapter_title, c.name AS cate_name, a.id AS author_id, a.name AS author_name
             FROM tb_book AS b ,tb_author AS a, tb_category AS c
@@ -92,7 +83,6 @@ class Book():
         return sdb.query(sql)
 
     def get_search_books_count (self, key):
-        sdb._ensure_connected()
         sql = '''
             SELECT count(1) as count
             FROM tb_book AS b
@@ -102,7 +92,6 @@ class Book():
 
     #direction = 'next', page = 1 , base_id = '', limit = PAGE_SIZE
     def get_page_books_by_cate (self, id = '', page = 1, page_size = 30):
-        sdb._ensure_connected()
         sql = '''
             SELECT b.id, b.name, b.is_finish, b.last_update_at, b.last_chapter_id, b.last_chapter_title, a.id AS author_id, a.name AS author_name
             FROM tb_book AS b ,tb_author AS a
@@ -112,7 +101,6 @@ class Book():
         return sdb.query(sql, id, (page - 1) * page_size, page_size)
 
     def get_books_by_author (self, id = ''):
-        sdb._ensure_connected()
         sql = '''
             SELECT b.id, b.name, b.is_finish, b.last_update_at, b.last_chapter_id, b.last_chapter_title, c.name AS cate_name
             FROM tb_book AS b, tb_category AS c
@@ -121,7 +109,6 @@ class Book():
         return sdb.query(sql, id)
 
     def get_books_by_ids (self, ids=""):
-        sdb._ensure_connected()
         sql = '''
             SELECT b.id, b.name, b.cover, b.description, c.name AS cate_name, a.name AS author_name
             FROM tb_book AS b ,tb_author AS a, tb_category AS c
@@ -132,31 +119,25 @@ Book= Book()
 
 class Author():
     def get_author_by_id (self, id = ''):
-        sdb._ensure_connected()
         return sdb.get('SELECT * FROM `tb_author` WHERE `id` = %s LIMIT 1' % str(id))
 
 Author = Author()
 
 class Chapter():
     def get_chapter_by_id (self, id = ''):
-        sdb._ensure_connected()
         return sdb.get('SELECT * FROM `tb_chapters` WHERE `id` = %s LIMIT 1' % str(id))
 
     def get_chapters_by_book_id (self, id = ''):
-        sdb._ensure_connected()
         return sdb.query('SELECT * FROM `tb_chapters` WHERE `book_id` = %s' % str(id))
 
     def get_text_by_id (self, id = ''):
-        sdb._ensure_connected()
         return sdb.get('SELECT * FROM `tb_chapter_text` WHERE `id` = %s LIMIT 1' % str(id))
 
     def get_previous (self, book_id, sort_num):
-        sdb._ensure_connected()
         sql = 'SELECT * FROM tb_chapters WHERE book_id=%s AND sort_num < %s ORDER BY sort_num LIMIT 0,1'
         return sdb.get(sql, book_id, sort_num )
 
     def get_next (self, book_id, sort_num):
-        sdb._ensure_connected()
         sql = 'SELECT * FROM tb_chapters WHERE book_id=%s AND sort_num > %s ORDER BY sort_num LIMIT 0,1'
         return sdb.get(sql, book_id, sort_num )
 
@@ -164,7 +145,6 @@ Chapter = Chapter()
 
 class Volume():
     def get_volumes_by_book_id (self, id = ''):
-        sdb._ensure_connected()
         return sdb.query('SELECT * FROM `tb_volume` WHERE `book_id` = %s' % str(id))
 
 Volume = Volume()
