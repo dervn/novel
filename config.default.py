@@ -17,7 +17,7 @@ mysql_port =3306
 mysql_db ="jiushulou"
 mysql_user ="root"
 mysql_password ="123"
-max_idle_time = "5"
+max_idle_time = 5
 
 hot ="21249,21028,8,13435"
 recommend ="18320,21,69,42"
