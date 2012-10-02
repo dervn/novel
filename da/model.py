@@ -76,19 +76,18 @@ class Book():
         sql = '''
             SELECT b.id, b.name, b.is_finish, b.last_update_at, b.last_chapter_id, b.last_chapter_title, c.name AS cate_name, a.id AS author_id, a.name AS author_name
             FROM tb_book AS b ,tb_author AS a, tb_category AS c
-            WHERE b.author_id = a.id AND b.category_id = c.id AND b.name AND b.name LIKE "\%'''+key+'''\%"
+            WHERE b.author_id = a.id AND b.category_id = c.id AND b.name LIKE "%%%s%%"
             ORDER BY b.last_update_at DESC
-            LIMIT 0,30'''
-        print sql
-        return sdb.query(sql)
+            LIMIT %s,%s'''
+        return sdb.query(sql, key, (page - 1) * page_size, page_size)
 
     def get_search_books_count (self, key):
         sql = '''
             SELECT count(1) as count
             FROM tb_book AS b
-            WHERE b.name LIKE "%'''+key+'''%"
+            WHERE b.name LIKE "%%%s%%"
             '''
-        return sdb.get(sql)
+        return sdb.get(sql, key)
 
     #direction = 'next', page = 1 , base_id = '', limit = PAGE_SIZE
     def get_page_books_by_cate (self, id = '', page = 1, page_size = 30):

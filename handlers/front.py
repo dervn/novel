@@ -175,12 +175,13 @@ class AboutHandler(BaseHandler):
 class SearchHandler(BaseHandler):
     def get(self):
         key = self.get_argument('key', '')
+
         page = self._get_page()
         page_size = 30
 
-        count =Book.get_search_books_count(key)
+        count = Book.get_search_books_count(key)
         books = Book.get_search_books(key, page, page_size)
-        print books
+
         pagination = Pagination(page, page_size, count['count'])
 
         self.render("search.html",

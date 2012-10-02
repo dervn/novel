@@ -34,7 +34,7 @@ class BaseHandler(RequestHandler):
         self.write(template.render(args))
 
     def _get_page(self):
-        page = self.get_argument('p', '1')
+        page = self.get_argument('p', 1)
         try:
             return int(page)
         except:
