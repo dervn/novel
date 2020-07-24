@@ -28,8 +28,8 @@ define("database_engine", default="mysql://root:123@127.0.0.1/jiushulou", help="
 define("txt_path", default="/home/work/txt", help="text file path")
 define("page_size", default=30, help="each page items num")
 # mysql server Options
-define("mysql_host_m", default='127.0.0.1', help="master hostname or IP address of the instance to connect to")
-define("mysql_host_s", default='127.0.0.1', help="slave hostname or IP address of the instance to connect to")
+define("mysql_host_m", default='127.0.0.1', help="main hostname or IP address of the instance to connect to")
+define("mysql_host_s", default='127.0.0.1', help="subordinate hostname or IP address of the instance to connect to")
 define("mysql_port", default=3306, help="port number on which to connect", type=int)
 define("mysql_db", default='jiushulou', help="database name")
 define("mysql_user", default='root', help="database name")
